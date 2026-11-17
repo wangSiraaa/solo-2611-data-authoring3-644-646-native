@@ -1,0 +1,75 @@
+{
+  "currency_decimals": {
+    "ALF": 2,
+    "BET": 0,
+    "HOME": 2
+  },
+  "home_currency": "HOME",
+  "source_quotes": [
+    {
+      "quote_id": "S1",
+      "base": "ALF",
+      "quote": "BET",
+      "bid": "1.1",
+      "ask": "1.2",
+      "start": 0,
+      "end": 100,
+      "published_seq": 1
+    }
+  ],
+  "invoice": {
+    "kind": "invoice",
+    "event_id": "iv",
+    "revision": 1,
+    "invoice_id": "I1",
+    "customer_id": "C1",
+    "currency": "ALF",
+    "amount": 10000,
+    "issue_day": 0,
+    "due_day": 20,
+    "book_rate": [
+      3,
+      1
+    ]
+  },
+  "payment": {
+    "kind": "payment",
+    "event_id": "pay",
+    "revision": 1,
+    "payment_id": "P1",
+    "customer_id": "C1",
+    "currency": "BET",
+    "amount": 120,
+    "payment_day": 30,
+    "book_rate": [
+      2,
+      1
+    ],
+    "allocations": [
+      {
+        "invoice_id": "I1",
+        "amount": 10000,
+        "conversion_id": "X1"
+      }
+    ]
+  },
+  "source_trade_scenarios": {
+    "before_sell_amount": 119,
+    "after_sell_amount": 120,
+    "sell": "BET",
+    "buy": "ALF",
+    "firm_time": 1,
+    "accepted_at": 2
+  },
+  "normal_same_currency": {
+    "invoice_amount": 10,
+    "payment_amount": 4
+  },
+  "boundaries": [
+    "request_time+ttl == accepted_at must reject",
+    "higher event revision before lower arrival",
+    "whole payment over-allocation",
+    "conversion identity reuse",
+    "round ties to even only once per allocation"
+  ]
+}
