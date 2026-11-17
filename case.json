@@ -1,0 +1,13 @@
+{
+  "initial_receipts": [
+    {"root_id":"R1","sample_id":"X","volume_ul":100},
+    {"root_id":"R2","sample_id":"Y","volume_ul":50}
+  ],
+  "actions": [
+    {"request_id":"split-1","type":"split","parent":"R1","children":[{"aliquot_id":"A1","volume_ul":40},{"aliquot_id":"A2","volume_ul":30}]},
+    {"request_id":"reserve-1","type":"reserve","aliquot_id":"A1","run_id":"RUN1","volume_ul":10},
+    {"request_id":"consume-1","type":"consume","aliquot_id":"A1","run_id":"RUN1"},
+    {"request_id":"revoke-1","type":"revoke_identity","root_id":"R1","reason":"合成的身份确认撤销"}
+  ],
+  "report_request":{"sample_id":"X","analyte":"M","selection":{"plate_id":"P1","analyte":"M","aliquot_id":"A1","run_id":"RUN1"}}
+}

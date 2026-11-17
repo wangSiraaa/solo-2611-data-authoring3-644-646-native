@@ -1,0 +1,7 @@
+well_id,analyte,kind,response,concentration,aliquot_id,run_id,dilution,known_concentration,tolerance
+A01,M,standard,1,0,,,,,
+A02,M,standard,4,1,,,,,
+A03,M,standard,7,2,,,,,
+B01,M,qc,4,,,,,1,0
+C01,M,sample,1.000001,,A1,RUN1,3,,
+C02,M,sample,1.000001,,A1,RUN1,3,,
