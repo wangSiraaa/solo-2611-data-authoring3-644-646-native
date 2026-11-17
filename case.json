@@ -1,0 +1,22 @@
+{
+  "pool": ["10.0.0.10", "10.0.0.2"],
+  "commands": [
+    {"request_id":"r1","action":"offer","client":"A","ttl":10,"t":0,"save_as":"oa"},
+    {"request_id":"r2","action":"accept","client":"A","offer_ref":"oa","t":0,"save_as":"la"},
+    {"action":"snapshot","save_as":"before"},
+    {"request_id":"r3","action":"offer","client":"B","ttl":10,"t":10,"save_as":"ob"},
+    {"request_id":"r4","action":"accept","client":"B","offer_ref":"ob","t":10,"save_as":"lb"},
+    {"action":"snapshot","save_as":"after"},
+    {"request_id":"old-release","action":"release","client":"A","lease_ref":"la","t":12}
+  ],
+  "observations": [
+    {"observation_id":"p3","exporter":"e1","flow_id":"f1","src_ip":"10.0.0.2","seq":3,"sample_time":12,"total_octets":150},
+    {"observation_id":"p1","exporter":"e1","flow_id":"f1","src_ip":"10.0.0.2","seq":1,"sample_time":8,"total_octets":100},
+    {"observation_id":"p4","exporter":"e1","flow_id":"f1","src_ip":"10.0.0.2","seq":4,"sample_time":14,"total_octets":190},
+    {"observation_id":"p2","exporter":"e1","flow_id":"f1","src_ip":"10.0.0.2","seq":2,"sample_time":10,"total_octets":120},
+    {"observation_id":"q1","exporter":"e1","flow_id":"cross","src_ip":"10.0.0.2","seq":1,"sample_time":8,"total_octets":500},
+    {"observation_id":"q2","exporter":"e1","flow_id":"cross","src_ip":"10.0.0.2","seq":2,"sample_time":12,"total_octets":540},
+    {"observation_id":"z1","exporter":"e2","flow_id":"reset","src_ip":"10.0.0.2","seq":1,"sample_time":12,"total_octets":100},
+    {"observation_id":"z2","exporter":"e2","flow_id":"reset","src_ip":"10.0.0.2","seq":2,"sample_time":13,"total_octets":3}
+  ]
+}
